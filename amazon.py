@@ -37,14 +37,7 @@ span[data-baseweb="tag"] [data-testid="stMultiSelectDeleteIcon"] {
 DB_URL = "postgresql+psycopg2://neondb_owner:npg_7BXVlnbo8Hsv@ep-shy-bar-aqhbrn00.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require"
 engine = create_engine(DB_URL)
 
-@st.cache_data
-def load_data():
-    query = "SELECT * FROM amazon_2015_to_2025;"
-    df = pd.read_sql(query, engine)
-    df["order_date"] = pd.to_datetime(df["order_date"], errors="coerce")
-    return df
 
-df = load_data()
 
 
 # ─────────────────────────────────────────────
